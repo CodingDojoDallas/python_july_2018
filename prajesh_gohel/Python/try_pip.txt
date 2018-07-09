@@ -1,0 +1,22 @@
+pip install Django==1.11.9: installs a particular package
+
+pip list: gives a list of the packages and version of package
+
+deactivate: self-explanatory
+
+pip3 list: same as pip list, except this time it does not list the Django framework
+
+source myEnvironments/py3Env/bin/activate: reactivates the virtual environment
+
+
+pip install Django==1.11.9: when run again, it simply states "Requirement already satisfied"
+
+pip freeze: only lists the framework (in this case Django) and pytz
+
+pip freeze > requirements.txt: creates a text file that includes the Django and pytz with their respective versions
+
+pip uninstall Django: self explanatory, asks you if you want to proceed with the uninstallation
+
+pip show Django: now that Django is uninstalled, it shows nothing
+
+pip search Flask: searches for all the packages for flask(?)
