@@ -1,0 +1,35 @@
+div.container {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: space-evenly;
+}
+div.container p {
+  flex: 1 0 auto;
+  margin: 20 auto;
+  padding: 0;
+  height: 10em;
+  width: auto;
+  text-align: center;
+}
+div.container form {
+  flex: 1 0 auto;
+  width: auto;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+}
+div.container form.getinfo {
+  display: flex;
+  flex-flow: row nowrap;
+}
+div.container input[type="number"],
+input[type="submit"] {
+  flex: 1 0 auto;
+  height: 2em;
+  width: 10rem;
+  margin: 0;
+  padding: 0.25em;
+  text-align: center;
+}
