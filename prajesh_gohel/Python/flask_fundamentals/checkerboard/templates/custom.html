@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Default Checkerboard!</title>
+    <style>
+      td{
+        width: 80px;
+        height: 80px;
+      }
+      .color1{
+        background-color: green;
+      }
+      .color2{
+        background-color: blue;
+      }
+    </style>
+  </head>
+  <body>
+    <table>
+      {% for i in range(row): %}
+      <tr>
+        {% for j in range(square) %}
+        <td class="color{{(i+j)%2+1}}"></td>
+        {% endfor %}
+      </tr>
+      {% endfor %}
+    </table>
+  </body>
+</html>

@@ -1,0 +1,25 @@
+<head>
+<style>
+body {
+    background-color: lightblue;
+}
+h1 {
+    color: maroon;
+    margin-left: 40px;
+}
+.blue{
+  height: 100px;
+  width: 100px;
+  margin-right: 20px;
+  background-color: blue;
+  border: 2px solid black;
+  display: inline-block;
+}
+</style>
+</head>
+<body>
+    <h1>Welcome!</h1>
+    {% for i in range(box): %}
+    <div class="blue" style="background-color: {{colors}}"></div>
+    {% endfor %}
+</body>
