@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	{{session['gold']}}
+	<div>
+		<form action ="/process_money" method ="post">
+			<h2>Farm</h2>
+			<p>Earns 10-20 golds</p>
+			<input type="hidden" name="farm" value="farm">
+			<input type="submit" value="Find Gold!"/>
+		</form>
+	</div>
+	<div>
+		<form action ="/process_money" method ="post">
+			<h2>Cave</h2>
+			<p>Earns 5-10 golds</p>
+			<input type="hidden" name="cave" value="cave">
+			<input type="submit" value="Find Gold!"/>
+		</form>
+	</div>
+	<div>
+		<form action ="/process_money" method ="post">
+			<h2>House</h2>
+			<p>Earns 2-5 golds</p>
+			<input type="hidden" name="house" value="house">
+			<input type="submit" value="Find Gold!"/>
+		</form>
+	</div>
+	<div>
+		<form action ="/process_money" method ="post">
+			<h2>casino</h2>
+			<p>0-50 golds</p>
+			<input type="hidden" name="casino" value="casino">
+			<input type="submit" value="Find Gold!"/>
+		</form>
+	</div>
+	{{session['activities']}}
+	{% for i in session['activities']%}
+		<p style = "color:{{i['col']}}">{{i['msg']}}</p>
+	{% endfor %}
+</body>
+</html>
