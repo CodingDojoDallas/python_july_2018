@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" Content="ie=edge">
+	<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+	<title>These are all my friends!</title>
+</head>
+<body>
+	<div class="container">
+		<div class=display_friend>
+        	<table class="table-striped" style="width:80%">
+        		<tr> 
+     				<th>Firstname</th>
+    				<th>Lastname</th> 
+    				<th>Occupation</th> 
+    			<tr/>
+				{% for friend in friends %}
+    			<tr>  
+					<td> {{ friend['first_name']  }} </td>
+					<td> {{ friend['last_name']  }} </td>
+					<td> {{ friend['occupation'] }} </td>
+				</tr>
+				{% endfor %}
+        	</table>
+		</div>
+        <p></p>
+		<h1>Add a friend</h1>
+		<form action="/create_friend" method="post">
+			<div class="form-group">
+				First Name: <input class="form-control" type="text" name="fname"> <!-- value="" placeholder="FName" /> -->
+			</div>
+			<div class="form-group">
+				Last Name: <input class="form-control" type="text" name="lname" value="" placeholder="Email" />
+			</div>
+			<div class="form-group">
+				Last Name: <input class="form-control" type="text" name="occupation" value="" placeholder="Occupation" />
+			</div>
+			<input class="btn btn-primary" type="submit" value="Add" />
+		</form>
+	</div>
+</body>
+</html>
+
