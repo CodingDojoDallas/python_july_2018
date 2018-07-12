@@ -1,0 +1,18 @@
+Notes - 5 July 2018
+
+TDD 
+
+step 1) write tests. they should fail because we haven't written the code yet
+step 2) write code to pass tests
+step 3) improve code
+
+Linked Lists
+
+  data structure 
+
+  [[data][next]] <-> [[data][next]] <-> [[data][next]]
+  each <-> represents the connection between each node which is the memory addr
+  of the next value. They are connected by pointing to each next one in a sequence.
+
+  the last node in the linked list points to the memory addr
+  

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Report Dashboard</title>
+  <link rel="stylesheet" href="{{ url_for('static',filename='css/bulma.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}">
+</head>
+
+<body>
+  <header>
+    <section class="hero is-info">
+      <div class="hero-body">
+        <div class="container">
+          <h1 class="title">
+            Report Dashboard
+          </h1>
+          <h2 class="subtitle">
+            "Oh, oh, and I almost forgot. Ahh, I'm also gonna need you to go ahead and come in on Sunday, too..." - Bill Lumbergh
+          </h2>
+        </div>
+      </div>
+    </section>
+  </header>
+  <main>
+    <section class="section">
+      <div class="container">
+        <h1 class="title">List of all Customers and # of Leads</h1>
+        <div class="columns">
+          <div class="column">
+            <table class="table is-hoverable">
+              <thead>
+                <tr>
+                  <th>Customer Name</th>
+                  <th># of Leads</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for client in clients %}
+                <tr>
+                  <td class="clientName">{{ client.first_name }} {{ client.last_name }}</td>
+                  <td class="clientLead">{{ client.lead_count }}</td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+          <div class="column">
+            <form action="/search" method="POST">
+              <div id="formFieldContainer" class="field is-grouped is-grouped-right">
+                <div class="field is-horizontal">
+                  <div class="field-label is-normal">
+                    <label for="date_start" class="label">From:</label>
+                  </div>
+                  <div class="field-body">
+                    <div class="control">
+                      <input type="date" name="date_start" id="date_start" class="input">
+                    </div>
+                  </div>
+                </div>
+                <div class="field is-horizontal">
+                  <div class="field-label is-normal">
+                    <label for="date_end" class="label">To:</label>
+                  </div>
+                  <div class="field-body">
+                    <div class="control">
+                      <input type="date" name="date_end" id="date_end" class="input">
+                    </div>
+                  </div>
+                </div>
+                <div class="field">
+                  <div class="control">
+                    <button class="button" type="submit" value="Submit">Submit</button>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container">
+        <h1 class="title">Customers and Number of new Leads</h1>
+        <div id="chart"></div>
+      </div>
+    </section>
+  </main>
+  <script defer src="{{ url_for('static',filename='js/fontAwesome.js') }}"></script>
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+  <script>
+    (function (d3) {
+      'use strict';
+      const dataset = '{{clients|tojson}}';
+      const width = 360;
+      const height = 360;
+      var radius = Math.min(width, height) / 2;
+      var color = d3.scaleOrdinal(d3.schemeCategory20b);
+      var svg = d3.select('#chart')
+        .append('svg')
+        .attr('width', width)
+        .attr('height', height)
+        .append('g')
+        .attr('transform', 'translate(' + (width / 2) +
+          ',' + (height / 2) + ')');
+      var arc = d3.arc()
+        .innerRadius(0)
+        .outerRadius(radius);
+      var pie = d3.pie()
+        .value(function (d) {
+          return d.count;
+        })
+        .sort(null);
+      var path = svg.selectAll('path')
+        .data(pie(dataset))
+        .enter()
+        .append('path')
+        .attr('d', arc)
+        .attr('fill', function (d) {
+          return color(d.data.label);
+        });
+    })(window.d3);
+  </script>
+</body>
+
+</html>
