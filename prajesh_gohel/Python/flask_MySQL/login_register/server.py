@@ -102,6 +102,14 @@ def verify():
 
 @app.route('/success')
 def success():
+    if session['logged_in'] == False:
+        flash("Please Log in")
+        return redirect('/')
+
+    elif 'email' not in session:
+        flash("Please Log in")
+        return redirect('/')
+        
     all_users = mysql.query_db("SELECT * FROM users")
     return render_template('logged_in.html', users = all_users)
 
