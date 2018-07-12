@@ -1,0 +1,9 @@
+{
+  "name": "leads-and-clients",
+  "version": "0.1.0",
+  "main": "static/js/index.js",
+  "license": "MIT",
+  "dependencies": {
+    "bulma": "^0.7.1"
+  }
+}

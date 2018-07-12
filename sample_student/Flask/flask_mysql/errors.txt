@@ -1,0 +1,16 @@
+`pymysql.err.OperationalError: (1045, "Access denied for user 'root'@'localhost' 
+(using password: YES)")`
+incorrect password
+
+`TypeError: query_db() missing 1 required positional argument: 'data'`
+default value for `data` is not none in line 22. It should be
+`query_db(self, query, data=None)`
+
+`False`
+Ln 19, Col 24 => added nonsense to query parameter. This did not produce a
+server error as far as I can tell, but it did end up making the function return
+`False`
+
+`False`
+server.py, Ln 13, Col 43 => replaced `users` with `comments`, and since a
+table named `comments` does not exist, it returned `False`
