@@ -10,20 +10,21 @@
       <h3>Submitted Info</h1>
       <div class="row">
         <p class="col-4">Name:</p>
-        <p class="col-4">{{request.form['name']}}</p>
+        <p class="col-4">{{session['name']}}</p>
       </div>
       <div class="row">
         <p class="col-4">Dojo Location:</p>
-        <p class="col-4">{{request.form['location']}}</p>
+        <p class="col-4">{{session['location']}}</p>
       </div>
       <div class="row">
         <p class="col-4">Favorite Language:</p>
-        <p class="col-4">{{request.form['language']}}</p>
+        <p class="col-4">{{session['language']}}</p>
       </div>
       <div class="row">
         <p class="col-4">Comment:</p>
-        <p class="col-4">{{request.form['comment']}}</p>
+        <p class="col-4">{{session['comment']}}</p>
       </div>
+      <a class="btn btn-success" href="/">Go Back</a>
     </div>
   </body>
 </html>
