@@ -1,0 +1,27 @@
+<head>
+    <style>
+    body {
+        background-color: light blue;
+    }
+    h1 {
+        color: maroon;
+        text-align: center;
+    } 
+    div#box {
+        width: 100px;
+        height: 100px;
+        background-color: {{boxcolor}};
+        /* background-color: blue; */
+        display: inline-block;
+        vertical-align: top;
+    }
+    </style>
+</head>
+    <h1>{{ phrase }}</h1>
+    <body>
+        <!-- {% if times!=0 %} -->
+        {% for i in range(0,times) %}
+        <div id="box"></div>
+        {% endfor %}
+        <!-- {% endif %} -->
+    </body>

@@ -1,0 +1,53 @@
+<html lang="en">
+<head>
+    <title>DojoSurvey</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <h1>Thanks for spending money!</h1>
+    <h4>You ordered {{total}} pieces of fruit and we charged your</h4>
+    <h4>student account on {{datetime}}</h4>
+    <form action="/checkout" method='POST'>
+        <div id="checkoutcontainer">
+            <h4>You've ordered</h4> 
+            <table>
+                <thead>
+                    <tr>
+                        <th>Fruit Name</th>
+                        <th>Quantity</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Strawberry: </td>
+                        <td>{{ user['strawquantity'] }}</td>
+                    </tr>
+                    <tr>
+                        <td>Raspberry: </td>
+                        <td>{{ user['raspquantity'] }}</td>
+                    </tr>
+                    <tr>
+                        <td>Apple: </td>
+                        <td>{{ user['applequantity'] }}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <h4>Your Information</h4>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name: </th>
+                        <td>{{ user['name'] }}</td>
+                    </tr>
+                    <tr>
+                        <th>Student ID: </th>
+                        <td>{{ user['studentid'] }}</td>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    </form>
+</body>
+</html>
