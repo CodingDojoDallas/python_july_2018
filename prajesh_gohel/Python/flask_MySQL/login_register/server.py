@@ -109,7 +109,7 @@ def success():
     elif 'email' not in session:
         flash("Please Log in")
         return redirect('/')
-        
+
     all_users = mysql.query_db("SELECT * FROM users")
     return render_template('logged_in.html', users = all_users)
 
