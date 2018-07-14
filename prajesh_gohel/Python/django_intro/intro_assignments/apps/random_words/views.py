@@ -1,22 +1,19 @@
 from django.shortcuts import render, HttpResponse, redirect
 from django.utils.crypto import get_random_string
-words = get_random_string(length=10)
 def generate(request):
     if 'counter' not in request.session:
         request.session['counter'] = 0
 
-    context = {
-        "string": words
-    }
-
-    return render(request, "intro_assignments/index.html", context)
+    return render(request, "intro_assignments/index.html")
 
 def process(request):
     if request.method == 'POST':
         print("*"*80)
         print(request.POST)
         print("\n")
-        print(request.POST['string'])
+        words = get_random_string(length=10)
+        request.session['string'] = words
+        print(request.session['string'])
         request.session['counter'] += 1
         print(request.session['counter'])
         print("\n")

@@ -12,7 +12,7 @@
           {% csrf_token %}
           <div class="form-group">
             <p>Words generated: {{request.session.counter}}</p>
-            <input readonly class="form-control-plaintext" type="text" name="string" value="{{string}}">
+            <input readonly class="form-control-plaintext" type="text" name="string" value="{{request.session.string}}">
             <button class="btn btn-secondary my-2" type="submit" name="submit">Generate</button>
           </div>
         </form>
