@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>String of Randomness</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+  </head>
+  <body>
+    <div class="container">
+      <div class="jumbotron col-6">
+        <form action="process" method="post">
+          {% csrf_token %}
+          <div class="form-group">
+            <p>Words generated: {{request.session.counter}}</p>
+            <input readonly class="form-control-plaintext" type="text" name="string" value="{{string}}">
+            <button class="btn btn-secondary my-2" type="submit" name="submit">Generate</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
