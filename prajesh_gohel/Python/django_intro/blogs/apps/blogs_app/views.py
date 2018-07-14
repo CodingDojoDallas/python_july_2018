@@ -5,11 +5,19 @@ def display(request):
     return HttpResponse(response)
 
 def new(request):
-    response = "Placeholder to display a new form to create a new blog"
-    return HttpResponse(response)
+    return render(request, "blogs/index.html")
 
 def create(request):
-    return redirect('/')
+    if request.method == "POST":
+        print("*"*50)
+        print(request.POST)
+        print(request.POST['name'])
+        print(request.POST['desc'])
+        request.session['name'] = "test"  # more on session below
+        print("*"*50)
+        return redirect("/")
+    else:
+        return redirect("/")
 
 def show(request, number):
     print(number)
