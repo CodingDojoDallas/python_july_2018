@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Registration Form</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+  </head>
+  <body class="bg-light">
+    <div class="navbar bg-primary justify-content-center mb-3">
+      <h2 class="text-white">Register Here!</h2>
+    </div>
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        {% for message in messages %}
+          <p class="alert alert-danger">{{message}}</p>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+    <div class="container">
+      <form action="/process" method="post">
+        <div class="form-row">
+          <div class="form-group col-6">
+            <label for="first_name">First Name:</label>
+            <input class="form-control" type="text" id="first_name "name="first_name" placeholder="First Name">
+          </div>
+          <div class="form-group col-6">
+            <label for="last_name">Last Name:</label>
+            <input class="form-control" type="text" id="last_name" name="last_name" placeholder="Last Name">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-6">
+            <label for="pass">Password:</label>
+            <input class="form-control" type="password" id="pass" name="pass">
+          </div>
+          <div class="form-group col-6">
+            <label for="pass_confirm">Confirm Password:</label>
+            <input class="form-control" type="password" id="pass_confirm" name="pass_confirm">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input class="form-control" type="email" id="email" name="email" placeholder="123@email.com">
+        </div>
+        <button class="btn btn-primary" type="submit" name="register">Register</button>
+      </form>
+    </div>
+  </body>
+</html>
