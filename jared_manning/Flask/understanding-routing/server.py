@@ -1,4 +1,4 @@
-from flask import *
+from flask import Flask, route, request
 app = Flask(__name__)
 
 
@@ -18,7 +18,7 @@ def dojo():
 @app.route('/say/michael')
 @app.route('/say/john')
 @app.route('/say/<other_name>')
-def say_hi(_other_name):
+def say_hi(other_name=None):
     return f'Hi {__get_name(request.path)}!'
 
 
