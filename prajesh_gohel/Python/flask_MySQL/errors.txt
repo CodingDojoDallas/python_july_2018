@@ -1,0 +1,8 @@
+pymysql.err.OperationalError: (2003, "Can't connect to MySQL server on 'database' ([Errno 8] nodename nor servname provided, or not known)")
+    There is no host named localhost, to fix it, change the name to the correct host.
+
+pymysql.err.OperationalError: (1045, "Access denied for user 'boot'@'localhost' (using password: YES)")
+    user needs to be 'root', not 'boot'
+
+AttributeError: module 'pymysql.cursors' has no attribute 'DicCursor'
+    Misspelled attribute: needs to be 'DictCursor'
