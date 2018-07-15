@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>C+R Friends</title>
+
+    <style>
+    h1, h2{font-family: 'Helvetica', cursive; color: darkslategray}
+    .block{border-bottom: 2px black;}
+    .span{color: green;}
+    td{padding: 5px;}
+    tr:nth-child(even){background-color: #D4FFAE}
+    </style>
+
+</head>  
+<body>
+
+    <h1>List of all customers and # of leads</h1>
+    
+    <div class="block">
+        
+        <table>
+            <tr>
+                <th>Customer Name</th>
+                <th>Number of Leads</th>
+            </tr>
+        {% for customer in customers %}
+            <tr>
+                <td>{{ Customer['customer'] }}</td>
+                <td>{{ Leads['leads'] }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+            
+    </div>
+      
+    <div>
+
+        <script>
+                window.onload = function() {
+                
+                var chart = new CanvasJS.Chart("chartContainer", {
+                    theme: "light3", // "light1", "light2", "dark1", "dark2"
+                    exportEnabled: true,
+                    animationEnabled: true,
+                    title: {
+                        text: "Customers and number of new leads"
+                    },
+                    data: [{
+                        type: "pie",
+                        startAngle: 90,
+                        toolTipContent: "<b>{label}</b>: {y}%",
+                        showInLegend: "true",
+                        legendText: "{label}",
+                        indexLabelFontSize: 16,
+                        indexLabel: "{label} - {y}%",
+                        dataPoints: [
+                            { y: {{ , label: "Chrome" },
+                            { y: 27.34, label: "Internet Explorer" },
+                            { y: 10.62, label: "Firefox" },
+                            { y: 5.02, label: "Microsoft Edge" },
+                            { y: 5.07, label: "Safari" },
+                            { y: 1.22, label: "Opera" },
+                            { y: 0.44, label: "Others" }
+                        ]
+                    }]
+                });
+                chart.render();
+                
+                }
+                </script>
+                </head>
+                <body>
+                <div id="chartContainer" style="height: 300px; width: 100%;"></div>
+                <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+        
+    
+    </div>  <!--close entire Create a Friend! div-->
+
+</body>
+
+</html>
+
+
