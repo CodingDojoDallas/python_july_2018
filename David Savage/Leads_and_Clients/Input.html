@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" Content="ie=edge">
+	<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="Customer_Reports.css">
+	<title>Customers</title>
+	<script>
+		window.onload = function () {
+
+		var options = {
+			title: {
+				text: "Customers and Number of New Leads"
+			},
+			subtitles: [{
+				text: "As of July, 2018"
+			}],
+			animationEnabled: true,
+			data: [{
+				type: "pie",
+				startAngle: 40,
+				toolTipContent: "<b>{label}</b>: {y}%",
+				showInLegend: "true",
+				legendText: "{label}",
+				indexLabelFontSize: 16,
+				indexLabel: "{label} - {y}%",
+				dataPoints: [
+					{ y: 10, label: "Michael Choi" },
+					{ y: 10, label: "Joe Smith" },
+					{ y: 10, label: "Ryan Owen" },
+					{ y: 10, label: "Masaki Fujimuto" },
+					{ y: 10, label: "Diana Sue Manlulu" },
+					{ y: 10, label: "John Suspupin" },
+					{ y: 10, label: "Toni Rone Panqaniban" },
+					{ y: 10, label: "Marie Gonzalez" },
+					{ y: 10, label: "Tom Owen" },
+					{ y: 10, label: "Roosevelt Sebial" }
+				]
+			}]
+		};
+		$("#chartContainer").CanvasJSChart(options);
+
+		}
+	</script>
+</head>
+<body>
+	<div class="page_container">
+		<h2 class="header_1">Report Dashboard</h2>
+			<form class="form-group" action="/change_dates" method="post">
+				<div class="form-check form-check-inline">
+					Start Date: <input class="form-control" class="form-check-inline" type="date" name="sdate">
+				</div>
+				<div class="heading">
+					End Date: <input class="form-control" class="form-check-inline" type="date" name="edate">			
+				</div>
+				<div class="heading">
+					<input class="form-control" type="submit" value="Update"/>			
+				</div>
+			</form>
+		<h3 class="Header_2">List of Customers and Number of Leads</h3>
+		<div class=display_client>
+        	<table class="table-striped" style="width:50%">
+        		<tr> 
+     				<th>Customer Name</th>
+    				<th>Number of Leads</th> 
+    			<tr/>
+				{% for client in clients %}
+    			<tr>  
+					<td> {{ client['first_name']  }} </td>
+					<td> {{ client['num_leads']  }} </td>
+				{% endfor %}
+				</tr>
+        	</table>
+		</div>
+		<div id="chartContainer" style="height: 370px; width: 100%;"></div>
+			<script src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
+			<script src="https://canvasjs.com/assets/script/jquery.canvasjs.min.js"></script>
+		</div>
+	</div>
+</body>
+</html>
+

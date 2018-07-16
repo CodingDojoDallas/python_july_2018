@@ -1,0 +1,61 @@
+<html lang="en">
+<head>
+    <title>DojoSurvey</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <form action="/result" method='POST'>
+        <div id="homecontainer">
+            <table>
+                <tr>
+                    <th>
+                        Your Name: 
+                    </th>
+                    <th>
+                        <input type="text" name="name">
+                    </th>
+                </tr>
+                <tr>
+                    <th>
+                        Dojo Location: 
+                    </th>
+                    <th>
+                        <select name="location">
+                            <option value="Dallas">Dallas</option>
+                            <option value="San Fransisco">San Fransisco</option>
+                            <option value="LA">LA</option>
+                            <option value="Cheese">Cheese</option>
+                        </select>
+                    </th>
+                </tr>
+                <tr>
+                    <th>
+                        Favorite Language:
+                    </th>
+                    <th>
+                        <select name="language">
+                            <option value="JavaScript">JavaScript</option>
+                            <option value="Python">Python</option>
+                            <option value="Ruby">Ruby</option>
+                            <option value="Pizza">Pizza</option>
+                        </select>
+                    </th>
+                </tr>
+                <tr>
+                    <th>
+                        Comment (optional):
+                    </th>
+                    <th>
+                        <textarea name="comment" id="comment"></textarea>
+                        <input type="submit" value="button">
+                    </th>
+                </tr>
+            </table>        
+        </div>
+    </form>
+    <div id="resultcontainer">
+    </div>
+</body>
+</html>

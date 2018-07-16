@@ -47,15 +47,14 @@ def process():
 		session['activities'].append(d)
 	elif 'casino' in request.form:
 		earned_gold = random.randint(-50,50)
+		session['gold'] += earned_gold
 		if earned_gold < 0:
-			session['gold'] -= earned_gold
 			d ={
 		'col': "red",
 		'msg': "Entered a casino and lost " + str(earned_gold) +" golds"
 		}
 			session['activities'].append(d)
 		else:
-			session['gold'] += earned_gold
 			d ={
 		'col': "green",
 		'msg': "Earned " + str(earned_gold) +" golds from the casino!"

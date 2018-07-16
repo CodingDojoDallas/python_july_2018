@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>C+R Friends</title>
+
+    <style>
+    h1, h2{font-family: 'Knewave', cursive; color: darkslategray}
+    .block{border-bottom: 2px black;}
+    .span{color: green;}
+    td{padding: 5px;}
+    tr:nth-child(even){background-color: #D4FFAE}
+    </style>
+
+</head>  
+<body>
+
+    <h1>Make a friend, don't offend.</h1>
+    
+    <div class="block">
+        
+        <table>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Occupation</th>
+            </tr>
+        {% for friend in friends %}
+            <tr>
+                <td>{{ friend['first_name'] }}</td>
+                <td>{{ friend['last_name'] }}</td>
+                <td>{{ friend['occupation'] }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+            
+    </div>
+      
+    <div>
+        <h2>Create a Friend!</h2>
+
+        <form action='/create_friend', method='post'>
+
+            <div class="form-group">
+
+                <input type="hidden", name="action", value="create"> <!--send a form with hidden value of "register" to the server-->
+                
+                First Name: <input type="text", class="form-control", value="", name="first_name" placeholder="First Name">
+
+                Last Name: <input type="text", class="form-control", value="", name="last_name" placeholder="Last Name">
+
+                Occupation: <input type="text", class="form-control", value="", name="occupation" placeholder="Occupation">
+                
+                <button type="submit", class="btn btn-default", value="Create" name="submit">Create</button>
+            
+            </div>  <!--close class="form-group" div-->
+    
+        </form>
+    
+    </div>  <!--close entire Create a Friend! div-->
+
+</body>
+
+</html>
+
+

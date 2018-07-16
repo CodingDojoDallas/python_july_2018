@@ -1,0 +1,29 @@
+<head>
+    <style>
+        .checker0{
+            width: 100px;
+            height: 100px;
+            display: inline-block;
+            vertical-align: top;
+            background-color: red;
+        }
+        .checker1{
+            width: 100px;
+            height: 100px;
+            display: inline-block;
+            vertical-align: top;
+            background-color: black;
+        }
+    </style>
+</head>
+<body>
+    <table>
+    {% for i in range(column) %}
+        <tr>
+            {% for j in range(row) %}
+                <td class='checker{{ (i+j)%2 }}'></td>
+            {% endfor %}
+        </tr>
+    {% endfor %}
+    </table>
+</body>
