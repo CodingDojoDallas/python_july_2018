@@ -1,0 +1,9 @@
+*{
+	/*outline: 2px dotted black;*/
+}
+
+.header_paragraph{
+height: 30px;
+width: 150px;
+background-color: green;
+}

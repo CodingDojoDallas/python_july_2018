@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+	<style type="text/css">
+		.header_paragraph{
+			height: 60px;
+			width: 450px;
+			font-size: 20px;
+			margin: 0px 0px 0px 70px;
+			background-color: green;
+		}
+		.underline{
+			text-decoration: underline;
+			margin-left: 190px;
+		}
+
+		.error{
+			color: red;
+
+		}
+		.page_container{
+			display: block;
+			width: 1500px;
+			height: 300px;
+		}
+		.registration_container{
+			display: inline-block;
+			width: 600px;
+			height:400px;
+		}
+		.login_container{
+			display: inline-block;
+			width: 600px;
+			height:400px;
+			vertical-align: top;	
+		}
+
+		.reg-header{
+			width: 300px;
+
+		}
+		.form-group{
+			display: block;
+		}
+		.form-control{
+			display: block;
+		}
+
+		.error{
+
+			display: inline-block;
+			color: red;
+
+		}
+
+	</style>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" Content="ie=edge">
+<!-- 	<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"> -->
+<!-- 	<link rel="stylesheet" type="text/css" href="Index.css"> -->
+	<title>Login and Registration Input and Edit</title>
+	<script>
+	</script>
+</head>
+<body>
+	<div class="page_container">
+		<h1>Login and Registration</h1>
+		<div class="registration_container">
+			<h2 class="reg-header">Register Here!</h2>
+			<form class="form-group"  action="/process_reg" method="POST">
+				First Name: <input class="form-control" type="text" name="rfname">
+				{% with errors = get_flashed_messages(category_filter=["rfname"])  %}
+					{% if errors %}
+						{%- for msg in errors %}
+						<span class="error form-inline">{{ msg }}</span>
+						{% endfor -%}
+					{% endif%}
+				{% endwith %}
+				<p></p>
+				Last Name: <input class="form-control form-inline" type="text" name="rlname" />
+				{% with errors = get_flashed_messages(category_filter=["rlname"])  %}
+					{% if errors %}
+						{%- for msg in errors %}
+						<span class="error form-inline">{{ msg }}</span>
+						{% endfor -%}
+					{% endif%}
+				{% endwith %}
+				<p></p>
+				Email: <input class="form-control form-inline" type="text" name="remail" />
+				{% with errors = get_flashed_messages(category_filter=["remail"])  %}
+					{% if errors %}
+						{%- for msg in errors %}
+						<span class="error form-inline">{{ msg }}</span>
+						{% endfor -%}
+					{% endif%}
+				{% endwith %}
+				<p></p>
+				Password: <input class="form-control form-inline" type="password" name="rpassword" />
+				{% with errors = get_flashed_messages(category_filter=["rpassword"])  %}
+					{% if errors %}
+						{%- for msg in errors %}
+						<span class="error form-inline">{{ msg }}</span>
+						{% endfor -%}
+					{% endif%}
+				{% endwith %}
+				<p></p>
+				Confirm Password: <input class="form-control form-inline" type="password" name="rcpassword" />
+				{% with errors = get_flashed_messages(category_filter=["rcpassword"])  %}
+					{% if errors %}
+						{%- for msg in errors %}
+						<span class="error form-inline">{{ msg }}</span>
+						{% endfor -%}
+					{% endif%}
+				{% endwith %}
+				<input class="form-control form-inline" type="submit" value="Register"/>
+<!-- 				<input class="form-control form-inline" type="submit" value="Register" action="/process_reg" method="POST"/>	 -->
+				<p></p>		
+			</form>
+		</div>
+		<div class="login_container">
+			<h2>Login here!</h2>
+			<form class="form-group form-inline" action="/process_login" method="POST">
+				Email Address: <input class="form-control form-inline" type="text" name="lemail" />
+				{% with errors = get_flashed_messages(category_filter=["lemail"])  %}
+					{% if errors %}
+						{%- for msg in errors %}
+						<span class="error form-inline">{{ msg }}</span>
+						{% endfor -%}
+					{% endif%}
+				{% endwith %}
+				<p></p>
+				Password: <input class="form-control form-inline" type="password" name="lpassword" />
+				{% with errors = get_flashed_messages(category_filter=["lpassword"])  %}
+					{% if errors %}
+						{%- for msg in errors %}
+						<span class="error form-inline">{{ msg }}</span>
+						{% endfor -%}
+					{% endif%}
+				{% endwith %}
+				<p></p>
+					<input class="form-control form-inline" type="submit" value="Login" />
+<!-- 				<input <class="form-control form-inline" type="submit" value="Login" action="/process_login" method="POST" />	 -->		
+			</form>
+		</div>
+	</div>
+</body>
+</html>
+
