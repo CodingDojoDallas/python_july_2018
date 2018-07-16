@@ -25,4 +25,5 @@ def process(request):
 
 def reset(request):
     del request.session['counter']
+    del request.session['string']
     return redirect('/')

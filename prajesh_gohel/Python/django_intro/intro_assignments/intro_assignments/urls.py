@@ -17,5 +17,4 @@ from django.urls import path, include
 
 urlpatterns = [
     path('', include('apps.random_words.urls')),
-    path('surveys', include('apps.surveys.urls')),
 ]
