@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" Content="ie=edge">
+<!-- 	<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"> -->
+	<link rel="stylesheet" type="text/css" href="Index.css">
+	<title>Customers</title>
+	<script>
+	</script>
+</head>
+<body>
+	<div class="page_container">
+		<h2 class="header_1">Email Validation</h2>
+		<form class="form-group" action="/process" method="POST">
+			Email Address: <input class="form-control" class="form-check-inline" type="text" name="eaddress" />
+			{% with errors = get_flashed_messages(category_filter=["email"])  %}
+				{% if errors %}
+					{%- for msg in errors %}
+					<span class="error">{{ msg }}</span>
+					{% endfor -%}
+				{% endif%}
+			{% endwith %}
+			<input class="form-control" type="submit" value="Submit"/>			
+		</form>
+	</div>
+</body>
+</html>
+
