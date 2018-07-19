@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Delete Course</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+  </head>
+  <body>
+    <div class="container">
+      <h3>Are you sure you want to delete the following course?</h3>
+      <p>Name: {{course.name}}</p>
+      <p>Description: {{course.desc}}</p>
+      <div class="row">
+        <a class="mr-3 btn btn-secondary" href="/">No</a>
+        <a class="btn btn-danger" href="/destroy/{{course.id}}/delete/">Yes</a>
+      </div>
+    </div>
+  </body>
+</html>
