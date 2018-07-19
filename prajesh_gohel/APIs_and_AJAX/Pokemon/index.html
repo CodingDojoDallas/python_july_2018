@@ -5,16 +5,12 @@
     <title>HTTP Request Response</title>
   </head>
   <body>
-    <div id="images">
-
-    </div>
+    <div id="images"></div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script type="text/javascript">
       function loop() {
         for(i=1; i<=802; i++) {
-          console.log(i);
           var pokemon = "<img src='http://pokeapi.co/media/sprites/pokemon/"+i+".png' alt='Pokemon'>"
-          console.log(pokemon)
           $('#images').append(pokemon)
         }
       }

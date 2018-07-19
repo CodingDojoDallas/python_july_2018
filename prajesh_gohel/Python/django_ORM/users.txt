@@ -1,0 +1,37 @@
+1. Know how to retrieve all users.
+
+    In [6]: User.objects.all()
+    Out[6]: <QuerySet [<User: User object (1)>, <User: User object (2)>, <User: User object (3)>]>
+
+2. Know how to get the last user.
+
+    In [7]: User.objects.last()
+    Out[7]: <User: User object (3)>
+
+3. Create a few records in the users
+
+    In [2]: User.objects.create(first_name="Prajesh", last_name="Gohel", email_addre
+       ...: ss="prajeshgohel@gmail.com", age=19)
+
+4. Know how to get the first user.
+
+    In [9]: User.objects.first()
+    Out[9]: <User: User object (1)>
+
+5. Get the record of the user whose id is 3 and UPDATE the person's last_name to something else. Know how to do this directly in the console using .get and .save.
+
+    In [10]: a = User.objects.get(id=3)
+    In [12]: a.last_name = "BabyBoy"
+    In [14]: a.save()
+
+6. Know how to delete a record of a user whose id is 4 (use something like User.objects.get(id=2).delete...).
+
+    In [15]: a = User.objects.get(id=2)
+
+    In [16]: a.delete()
+    Out[16]: (1, {'users.User': 1})
+
+7. Know how to get the users sorted by their first name (order by first_name DESC)
+
+    In [4]: User.objects.order_by("first_name")
+    Out[4]: <QuerySet [<User object: Hridaan BabyBoy>, <User object: Prajesh Gohel>]

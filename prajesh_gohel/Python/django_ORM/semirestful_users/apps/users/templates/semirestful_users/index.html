@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>List of Users</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+  </head>
+  <body>
+    <div class="container">
+      <h2>Users</h2>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>id</th>
+            <th>Full Name</th>
+            <th>Email</th>
+            <th>Created At</th>
+            <th>Updated At</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for user in users %}
+          <tr>
+            <td>{{user.id}}</td>
+            <td> <a href="#">{{user.first_name}} {{user.last_name}}</a></td>
+            <td>{{user.email}}</td>
+            <td>{{user.created_at}}</td>
+            <td>{{user.updated_at}}</td>
+            <td> <a href="/{{user.id}}/">Show</a> <a href="/{{user.id}}/edit/">Edit</a> <a href="/destroy/{{user.id}}">Delete</a> </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      <a href="/new/">Add a new user</a>
+    </div>
+  </body>
+</html>
