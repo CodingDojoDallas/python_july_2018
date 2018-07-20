@@ -1,0 +1,17 @@
+1. Change the name of the 5th book to C#
+
+    In [7]: b = Book.objects.get(id=2)
+
+    In [8]: b.name = "C#"
+
+    In [9]: b.save()
+
+2. Change the first_name of the 5th author to Ketu
+
+3. For 3rd book, remove first author
+
+    In [37]: Book.objects.get(id=4).authors.get(id=2).delete()
+
+4. Assign the fourth author to the first 5 books (or in other words, all the books)
+
+    In [30]: Author.objects.get(id=4).books.add(Book.objects.get(id=6))
