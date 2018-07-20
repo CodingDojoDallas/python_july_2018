@@ -1,0 +1,25 @@
+For a red belt:
+    ***DONE*** Login and Registration with validations
+    ***DONE*** Validation errors should appear on the page
+    ***DONE*** Logout feature
+    ***DONE*** Adding of Quotes
+    ***DONE*** Validation for empty entries should apply and should display error messages
+    ***DONE*** Logged in user must be able to delete quotes that they have posted
+    ***DONE*** “Posted by” link must send user to a page of all quotes by the quote poster
+    ***DONE*** Quote dashboard page should say “Welcome {{ User }}”
+    ***DONE*** User can edit their account data in the Edit My Account Page
+    ***DONE*** HTML and CSS reflect the wireframe to at least 75% accuracy
+For a black belt:
+    You must be able to deploy your work to Amazon EC2 and provide the IP address or subdomain/domain name to where your work has been deployed
+        Please note that Heroku deployment is not honored
+    ***DONE*** Edit My Account Page should pre populate form fields with current user data in database
+    Like button
+    Each quote should display the number of likes
+    User can only like a quote once
+    ***DONE*** Edit My Account page should validate empty fields, email regex, and check that email is not already in use
+Also:
+    Create a short video walking through the features of your app. Show your validations working. There is no need to speak or show your code.
+    Remove your github repo after deploying.
+    The wireframe is available for download here.
+Don’t worry about:
+    What the prompts are asking for. Just ask if you are unsure about what the goals are!

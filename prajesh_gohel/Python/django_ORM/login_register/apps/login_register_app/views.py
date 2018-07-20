@@ -19,9 +19,8 @@ def register(request):
             return redirect('/')
 
         else:
-            pw_hash = bcrypt.hashpw(request.POST['password'].encode(), bcrypt.gensalt())
+            pw_hash = bcrypt.hashpw(request.POST['password'].encode(), bcrypt.gensalt()).decode()
             User.objects.create(first_name=request.POST['first_name'], last_name=request.POST['last_name'], email=request.POST['email'], password=pw_hash)
-            request.session['first_name'] = request.POST['first_name']
             request.session['email'] = request.POST['email']
             request.session['logged_in'] = True
             return redirect('/success')
@@ -29,8 +28,14 @@ def register(request):
     return redirect('/')
 
 def verify(request):
-    user = User.objects.get(email=request.POST['email'])
     errors = User.objects.login_validator(request.POST)
+    try:
+        user = User.objects.get(email=request.POST['email'])
+
+    except:
+        messages.error(request, "Login Failed")
+        return redirect('/')
+
     if request.method == 'POST':
         if len(errors):
             for key, value in errors.items():
@@ -38,21 +43,22 @@ def verify(request):
 
             return redirect('/')
 
-        elif not bcrypt.checkpw(request.POST['passlog'].encode(), user.password.encode()):
+        elif not bcrypt.checkpw(request.POST['passlog'].encode(), user[0].password.encode()):
             messages.error(request, "Login failed")
             return redirect('/')
 
         else:
-            request.session['first_name'] = user.first_name
             request.session['email'] = request.POST['email']
             request.session['logged_in'] = True
             return redirect('/success')
 
 def success(request):
+    if 'first_name' not in request.session:
+        return redirect('/')
+
     return render(request, 'login_register/success.html')
 
 def log_out(request):
-    del request.session['first_name']
     del request.session['email']
     request.session['logged_in'] = False
     return redirect('/')

@@ -1,0 +1,38 @@
+** Conceptual Questions **
+
+1. What is the flow of information in a typical request, from when we type an address on our browser, to when we receive the response on our browser?
+
+    Say we are at localhost:8000 and we want to get to localhost:8000/users. The first thing that will happen is the browser will send an HTTP GET request for everything in /users. Then, the server processes all of that information and sends a GET method over to the browser, where it is converted into HTML, CSS, and JavaScript.
+
+2. What is MVC, OOP and procedural programming? Why would we use each?
+
+    MVC stands for model-view-controller, and it is a type of framework that separates the information into different parts to ease the process of creating backend.
+    OOP stands for object-oriented-programming, and it refers to organizing information in "objects" instead of "actions"; it allows us to manipulate the objects themselves when creating backend.
+
+3. What is jQuery and why do we use it?
+
+    jQuery is a library that utilizes JavaScript code and simplifies it to lessen the amount of code you would normally need with pure JavaScript.
+
+4. What are some ways to make your website uniform across multiple browsers?
+
+    One way to ensure uniformity is to validate your HTML code with w3validator: this site checks not only any errors you have made in your HTML but also warns you about browser compatibility.
+
+5. What are the differences between submitting a form via method="post" vs method="get"?
+
+    A get method is a nonsecure method that is used to get to another route. A post method is a more secure route that protects any information coming in (including passwords, email, etc), and spits it back out to a different route that has a get method.
+
+6. What are the advantages/disadvantages of sending data to the server in the url vs making a post request?
+
+    The biggest disadvantage of not using a post request is all of the information that was inputted in a form will be displayed in the url itself when the form is submitted. This can be extremely dangerous as hackers can easily take that information and do whatever they want with it.
+
+7. Why should we never render a page on a post request.
+
+    The post method handles all of the processing from the submitted form; it will not allow you to actually render anything. If you did make it to where it renders AND handles a post request, a person would be resubmitting that data from the form every-time they refresh the page.
+
+8. You notice that when you click submit on a form, your app breaks. Describe how you would approach debugging this problem.
+
+    The first thing to do is to put in a print function in the route that it is going to in order to see if the browser is actually getting to that particular route or function. If not, see what you can do to fix the path. If it does, check any syntax issues, key errors, etc., until your form finally submits properly. Just do double check, see if the information is actually stored in the database.
+
+9. What is an ORM and why do we use it?  What are its advantages and also its disadvantages.
+
+    ORM stands for object-relational-mapping, and it allows a developer to create and run SQL codes using all of the backend. There is usually a file called "models" that stores the information for the tables and relationships of those tables. The big advantage is it can save time if you know the ORM syntax. The big disadvantage is it can be difficult to actually visualize the tables, so a browser is normally recommended if using ORM.
