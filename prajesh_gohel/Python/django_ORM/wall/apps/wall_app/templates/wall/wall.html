@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Welcome</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <style>
+      .navbar{
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="navbar bg-dark mb-3">
+      <h2>CodingDojo Wall</h2>
+      <p class="offset-6">Hello {{user.first_name}}!</p>
+      <a href="/log_out/">Logout</a>
+    </div>
+    <div class="container">
+      <form class="mb-3" action="/wall/post/" method="post">
+        {% csrf_token %}
+        <div class="form-group">
+          <h4 class="font-weight-normal">Post a message</h4>
+          <textarea class="form-control" name="message" rows="3"></textarea>
+        </div>
+        <button class="btn btn-primary offset-10 col-2" type="submit" name="post_message">Post it!</button>
+      </form>
+      {% for message in messages %}
+      <h5 class="font-weight-normal">{{message.user.first_name}} {{message.user.last_name}} - {{message.created_at}}</h5>
+      <p>{{message.message}}</p>
+      <div class="offset-1">
+        {% for comment in comments %}
+        {% if message.id == comment.message_comment_id %}
+        <h5 class="font-weight-normal">{{comment.user_comment.first_name}} {{comment.user_comment.last_name}} - {{comment.created_at}}</h5>
+        <p>{{comment.comment}}</p>
+        {% endif %}
+        {% endfor %}
+        <form class="mb-3" action="/wall/post/" method="post">
+          {% csrf_token %}
+          <div class="form-group">
+            <h4 class="font-weight-normal">Post a comment</h4>
+            <textarea class="form-control" name="comment" rows="3"></textarea>
+          </div>
+          <button class="btn btn-success offset-10 col-2" type="submit" name="post_comment">Comment!</button>
+        </form>
+      </div>
+      {% endfor %}
+    </div>
+  </body>
+</html>

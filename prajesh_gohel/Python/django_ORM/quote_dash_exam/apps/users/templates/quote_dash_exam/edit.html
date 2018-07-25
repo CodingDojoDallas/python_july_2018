@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Edit</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+    <style media="screen">
+      .navbar{
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="navbar bg-dark mb-3">
+      <h2>Edit My Account</h2>
+      <a class="offset-7" href="/quotes/">Go Back</a>
+      <a href="/quotes/log_out/">Logout</a>
+    </div>
+    {% if messages %}
+      {% for message in messages %}
+        <p class="alert alert-danger">{{message}}</p>
+      {% endfor %}
+    {% endif %}
+    <div class="container">
+      <form action="/myaccount/{{user.id}}/update/" method="post">
+        {% csrf_token %}
+        <div class="form-group">
+          <label for="first_name">First Name</label>
+          <input class="form-control col-4" type="text" name="first_name" value="{{user.first_name}}" id="first_name">
+        </div>
+        <div class="form-group">
+          <label for="last_name">Last Name</label>
+          <input class="form-control col-4" type="text" name="last_name" value="{{user.last_name}}" id="last_name">
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input class="form-control col-4" type="email" name="email" value="{{user.email}}" id="email">
+        </div>
+        <button  class="btn btn-primary" type="submit" name="create">Update</button>
+      </form>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,16 @@
+1. Have the all the users create/upload 2 books.
+
+    In [18]: Book.objects.create(name="12 Rules of Life", desc="byebye", uploader=Us
+    ...: er.objects.get(id=3))
+
+    rinse and repeat
+
+2. Have the users like the books.
+
+    In [23]: User.objects.get(id=1).liked_books.add(Book.objects.last())
+
+    rinse and repeat
+
+3. Display all users who uploaded/liked the books.
+
+    In [43]: Book.objects.get(id=3).liked_users.all()
