@@ -13,4 +13,4 @@ def selectionSort(list):
 
     return list
 
-print(selectionSort([1, 5, 3, 2, 0, 8]))
+print(selectionSort([1, 5, 3, 2, 0, 8, 3, 5, 3, 7, 9, 0, 5, 32, 6, 8, 32, 7, 9, 6, 4, 8, 9]))

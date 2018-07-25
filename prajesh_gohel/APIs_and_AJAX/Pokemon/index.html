@@ -2,19 +2,26 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>HTTP Request Response</title>
+    <title>Pokedex</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
   </head>
   <body>
-    <div id="images">
-
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-6" id="images"></div>
+        <div class="col-4" id="pokedex"></div>
+      </div>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script type="text/javascript">
+      $(document).ready(function(){
+        $.get("https://pokeapi.co/api/v2/pokemon/1", function(res){
+          console.log(res);
+        }, "json");
+      });
       function loop() {
-        for(i=1; i<=802; i++) {
-          console.log(i);
-          var pokemon = "<img src='http://pokeapi.co/media/sprites/pokemon/"+i+".png' alt='Pokemon'>"
-          console.log(pokemon)
+        for(i=1; i<=151; i++) {
+          var pokemon = "<a href='https://pokeapi.co/api/v2/pokemon/"+i+"'><img id="+i+" src='http://pokeapi.co/media/sprites/pokemon/"+i+".png' alt='Pokemon'></a>"
           $('#images').append(pokemon)
         }
       }

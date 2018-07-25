@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Profile</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+  </head>
+  <body>
+    <div class="container">
+      <h2>User {{user.id}}</h2>
+      <p>Full Name: {{user.first_name}} {{user.last_name}}</p>
+      <p>Email: {{user.email}}</p>
+      <p>Created At: {{user.created_at}}</p>
+      <div class="row">
+        <a class="mr-3" href="/{{user.id}}/edit/">Edit</a>
+        <a class="mr-3" href="/destroy/{{user.id}}/">Delete</a>
+        <a href="/">Back</a>
+      </div>
+    </div>
+  </body>
+</html>
